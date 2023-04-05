@@ -23,4 +23,15 @@ CREATE COMPUTE MODULE serverdetails_buildResponse
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		SET OutputRoot = InputRoot;
 	END;
+	
+		CREATE FUNCTION javaLangSystemGetenv( IN name CHARACTER )
+	RETURNS CHARACTER
+	LANGUAGE JAVA
+	EXTERNAL NAME "java.lang.System.getenv";
+	
+	CREATE FUNCTION javaLangSystemCurrentTimeMillis()
+	RETURNS CHARACTER
+	LANGUAGE JAVA
+	EXTERNAL NAME "com.ibm.ace.Utils.getSystemTimeMilliSeconds";
+	
 END MODULE;
